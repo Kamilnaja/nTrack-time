@@ -3,30 +3,60 @@ import Header from './partials/Header';
 import './App.css';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.toggleClass = this.toggleClass.bind(this);
+        this.startCounter = this.startCounter.bind(this);
+        this.stopCounter = this.stopCounter.bind(this);
+        this.state = { 
+            isCounting: 'false',
+            workTime: 0 
+        }
+    }
+
+    toggleClass() {
+        const currentState = this.state.isCounting;
+        this.setState({isCounting: 'true'})
+    }
+
+    time = 0; 
+    startCounter() {
+        var workTime = 0;
+        this.time = setInterval(() => {
+            workTime++;
+            console.log(workTime);
+            this.setState({
+                workTime: workTime
+            })
+        }, 1000);
+        // this.setState.time = workTime;
+    }
+
+    stopCounter() {
+        clearInterval(this.time);
+        console.log('stopped')
+    }
+    
+    resetCounter() {
+        this.time = 0;
+    }
     render() {
         return (
             <div className="App">
                 <Header></Header>
-                <button onClick={startCounter}>Start</button>
-                <button onClick={stopCounter}>Stop</button>
-                <div>Time </div>
+                <div className="btn-wrapper">
+                    <button onClick={this.startCounter}>Start</button>
+                    <button onClick={this.stopCounter}>Stop</button>
+                    <h1>{this.state.workTime}</h1>
+                </div>
             </div>
         );
     }
 }
+
 var time;
-function startCounter () {
-    time = setInterval(() => {
-        console.log('time');
-    }, 500)
-}
 
-function stopCounter () {
-    clearInterval(time);
-}
 
-function resetCounter () {
-    time = 0;
-}
+
 
 export default App;
