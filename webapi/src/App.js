@@ -7,11 +7,26 @@ class App extends Component {
         return (
             <div className="App">
                 <Header></Header>
-                <button>Start</button>
+                <button onClick={startCounter}>Start</button>
+                <button onClick={stopCounter}>Stop</button>
                 <div>Time </div>
             </div>
         );
     }
+}
+var time;
+function startCounter () {
+    time = setInterval(() => {
+        console.log('time');
+    }, 500)
+}
+
+function stopCounter () {
+    clearInterval(time);
+}
+
+function resetCounter () {
+    time = 0;
 }
 
 export default App;
