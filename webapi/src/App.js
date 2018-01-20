@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './partials/Header';
+import DataList from './partials/dataList';
 import './App.css';
 
 class App extends Component {
@@ -8,6 +9,7 @@ class App extends Component {
         this.toggleClass = this.toggleClass.bind(this);
         this.startCounter = this.startCounter.bind(this);
         this.stopCounter = this.stopCounter.bind(this);
+        this.saveData = this.saveData.bind(this);
         this.state = { 
             isCounting: 'false',
             workTime: 0 
@@ -40,6 +42,10 @@ class App extends Component {
     resetCounter() {
         this.time = 0;
     }
+
+    saveData() {
+        console.log('saving');
+    }
     render() {
         return (
             <div className="App">
@@ -47,8 +53,10 @@ class App extends Component {
                 <div className="btn-wrapper">
                     <button onClick={this.startCounter}>Start</button>
                     <button onClick={this.stopCounter}>Stop</button>
+                    <button onClick={this.saveData}>Save data</button>
                     <h1>{this.state.workTime}</h1>
                 </div>
+                <DataList></DataList>
             </div>
         );
     }
