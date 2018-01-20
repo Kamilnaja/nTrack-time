@@ -8,14 +8,35 @@
   color: white;
   padding: 20px;
 }
+
 .site-title {
   font-size: 20px;
   text-transform: uppercase;
   display: inline;
 }
+
+.btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px auto;
+  max-width: 75%;
+}
+
+@media(max-width: 772px) {
+  .btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+    max-width: 100%;
+  } 
+}
+
 .button {
   width: 100%;
-  margin-bottom: 50px;
+  margin: 5px;
   padding-top: 20px;
   padding-bottom: 20px;
   font-size: 30px;
@@ -23,12 +44,14 @@
   color: rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease;
   border: 5px solid transparent;
+  cursor: pointer;
 }
 
 .button:hover {
   color: #fff;
   background-color: royalblue;
 }
+
 .button:active, 
 .button:focus {
   border: 5px solid grey;
@@ -38,11 +61,7 @@
   text-align: center;
   font-size: 40px;
 }
-.btn-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .data-list {
   display: flex;
