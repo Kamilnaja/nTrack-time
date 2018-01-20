@@ -1,0 +1,19 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: cornflowerblue;
+  color: white;
+  padding: 20px;
+}
+.site-title {
+  font-size: 20px;
+  text-transform: uppercase;
+  display: inline;
+}
+button {
+  max-width: 200px;
+  margin: 50px;
+}
