@@ -15,8 +15,8 @@ export default class DataList extends Component {
                 console.log(error);
             })
             .then(res => {
-                    this.setState({posts: res.data});
-                }
+                this.setState({ posts: res.data });
+            }
             )
     }
     render() {
@@ -24,21 +24,22 @@ export default class DataList extends Component {
             <div className="data-list">
                 <h1>Data list</h1>
                 <table>
+                    <thead>
+                        <tr>
+                            <th>User name</th>
+                            <th>Time logged</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                    
-                        <th>User name</th>
-                        <th>Time logged</th>
-                    {this.state.posts.map((data, i) => {
-                        return (
-                            <tr>
-                                <td key={i}>{data.user}</td>
-                                <td key={i}>{data.time}</td>
-                    </tr>
-                        )
-                    })}
+                        {this.state.posts.map((data, i) => {
+                            return (
+                                <tr key={i}>
+                                    <td key={data.user}>{data.user}</td>
+                                    <td key={i}>{data.time}</td>
+                                </tr>
+                            )
+                        })}
                     </tbody>
-                    
-
                 </table>
             </div>
         )

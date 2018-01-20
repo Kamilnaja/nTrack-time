@@ -1,12 +1,13 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var db = require('./configDb');
 var timeReports = require('./routes/timeReports');
 var mySchema = require('./models/timeReport');
-var bodyParser = require('body-parser');
 var accessControl = require('./accessControl');
 var app = express();
+var port = 8080;
 
 app.use(accessControl);
 app.use(bodyParser.json());
@@ -18,6 +19,6 @@ app.get('/', (req, res) => {
 
 app.use('/api', timeReports);
 
-app.listen(8080, () => {
-    console.log('listening on 8080');
+app.listen(port, () => {
+    console.log(`listening on ${port}`);
 })

@@ -9,3 +9,14 @@ exports.time_reports_list = (req, res) => {
             res.send(data);
         })
 }
+
+exports.time_reports_save = (req, res) => {
+    var recordInstance = new TimeReportModel({
+        user: req.body.user
+    })
+    console.log(req.body.user)
+    recordInstance.save((err) => {
+        if (err) { return (err)}
+    })
+    res.send('zapisano')
+}
