@@ -14,9 +14,27 @@ exports.time_reports_save = (req, res) => {
     var recordInstance = new TimeReportModel({
         user: req.body.user
     })
-    console.log(req.body.user)
     recordInstance.save((err) => {
-        if (err) { return (err)}
+        if (err) { return (err) }
     })
     res.send('zapisano')
+}
+
+exports.time_reports_add_project = (req, res) => {
+    var recordInstance = new TimeReportModel({
+        project: req.body.project
+    })
+    recordInstance.save((err) => {
+        if (err) { return (err) }
+    })
+    res.send('zapisano');
+}
+
+exports.time_reports_projects_list = (req, res) => {
+    TimeReportModel.find({"project" : {$ne: null}})
+    .sort('-project')
+    .exec((err, data) => {
+        if (err) { return (err) }
+        res.send(data);
+    })
 }

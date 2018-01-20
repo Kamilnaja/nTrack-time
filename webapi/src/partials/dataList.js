@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import config from './../utils/time-tracker';
 
 export default class DataList extends Component {
     constructor(props) {
@@ -10,14 +11,14 @@ export default class DataList extends Component {
     }
     componentDidMount() {
         axios
-            .get('http://localhost:8080/api/reports')
+            .get(`${config.localUrl}/api/reports`)
             .catch((error) => {
                 console.log(error);
+                return
             })
             .then(res => {
                 this.setState({ posts: res.data });
-            }
-            )
+            })
     }
     render() {
         return (
