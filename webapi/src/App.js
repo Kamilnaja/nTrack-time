@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './partials/Header';
 import DataList from './partials/dataList';
+import ProjectList from './partials/projectList';
 import './App.css';
 
 class App extends Component {
@@ -56,6 +57,7 @@ class App extends Component {
                     <button onClick={this.saveData}>Save data</button>
                     <h1>{this.state.workTime}</h1>
                 </div>
+                <ProjectList></ProjectList>
                 <DataList></DataList>
             </div>
         );

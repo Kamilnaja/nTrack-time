@@ -10,13 +10,12 @@ export default class DataList extends Component {
     }
     componentDidMount() {
         axios
-            .get('https://jsonplaceholder.typicode.com/todos')
+            .get('http://localhost:8080/api/reports')
             .catch((error) => {
                 console.log(error);
             })
             .then(res => {
                     this.setState({posts: res.data});
-                    console.log(this.state.posts);
                 }
             )
     }
@@ -24,13 +23,23 @@ export default class DataList extends Component {
         return (
             <div className="data-list">
                 <h1>Data list</h1>
-                <ul >
+                <table>
+                    <tbody>
+                    
+                        <th>User name</th>
+                        <th>Time logged</th>
                     {this.state.posts.map((data, i) => {
                         return (
-                            <li key={i}>{data.id}</li>
+                            <tr>
+                                <td key={i}>{data.user}</td>
+                                <td key={i}>{data.time}</td>
+                    </tr>
                         )
                     })}
-                </ul>
+                    </tbody>
+                    
+
+                </table>
             </div>
         )
     }
