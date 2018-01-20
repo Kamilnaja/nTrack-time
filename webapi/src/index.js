@@ -4,22 +4,11 @@ import { createStore } from 'redux';
 import { connect, Provider } from 'react-redux';
 import propTypes from 'prop-types';
 
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'INCREMENT':
-            return { ...state, counter: state.counter + 1 };
-        case 'DECREMENT':
-            return { ...state, counter: state.counter - 1 };
-        default:
-            return state;
-    }
-};
+import reducer from './reducer';
 
 const store = createStore(reducer, { counter: 0 });
 
 class Counter extends React.Component {
-
-
     render() {
         const { counter, onDecrement, onIncrement } = this.props;
         return (
@@ -35,6 +24,7 @@ class Counter extends React.Component {
 const mapStateToProps = (state) => {
     return { counter: state.counter };
 };
+
 const mapDispatchToProps = (dispatch) => {
     return {
         onIncrement: () => dispatch({ type: 'INCREMENT' }),
