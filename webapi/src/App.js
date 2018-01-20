@@ -51,11 +51,17 @@ class App extends Component {
         return (
             <div className="App">
                 <Header></Header>
+                <h3 className="actual-time">{this.state.workTime}</h3>
                 <div className="btn-wrapper">
-                    <button onClick={this.startCounter}>Start</button>
-                    <button onClick={this.stopCounter}>Stop</button>
-                    <button onClick={this.saveData}>Save data</button>
-                    <h1>{this.state.workTime}</h1>
+                    <button 
+                        className="button" 
+                        onClick={this.startCounter}>Start</button>
+                    <button 
+                        className="button"
+                        onClick={this.stopCounter}>Stop</button>
+                    <button 
+                        className="button"
+                        onClick={this.saveData}>Save data</button>
                 </div>
                 <ProjectList></ProjectList>
                 <DataList></DataList>

@@ -13,11 +13,31 @@
   text-transform: uppercase;
   display: inline;
 }
-button {
-  max-width: 200px;
-  margin: 50px;
+.button {
+  width: 100%;
+  margin-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 30px;
+  border: 2px solid white;
+  color: rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+  border: 5px solid transparent;
 }
 
+.button:hover {
+  color: #fff;
+  background-color: royalblue;
+}
+.button:active, 
+.button:focus {
+  border: 5px solid grey;
+
+}
+.actual-time {
+  text-align: center;
+  font-size: 40px;
+}
 .btn-wrapper {
   display: flex;
   align-items: center;
