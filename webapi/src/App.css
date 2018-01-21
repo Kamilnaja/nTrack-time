@@ -35,10 +35,10 @@
 }
 
 .button {
-  width: 100%;
+  width: 80%;
   margin: 5px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 30px;
   border: 2px solid white;
   color: rgba(0, 0, 0, 0.6);
@@ -75,4 +75,42 @@
   flex-direction: column;
   display: flex;
   justify-content: center;
+}
+
+.add-project-section {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.input {
+  width: 100%;
+  padding: 5px 10px;
+}
+
+@keyframes info-box {
+  0% {bottom: -10px}
+  95% {bottom: 30px}
+  100% {bottom: 0}
+}
+
+.info-box:not(:empty) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: 2px solid cornflowerblue;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  background-color:antiquewhite;
+
+  animation-name: info-box;
+  animation-duration: 1s;
 }

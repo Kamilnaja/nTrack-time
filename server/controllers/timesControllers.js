@@ -31,10 +31,11 @@ exports.time_reports_add_project = (req, res) => {
 }
 
 exports.time_reports_projects_list = (req, res) => {
-    TimeReportModel.find({"project" : {$ne: null}})
-    .sort('-project')
-    .exec((err, data) => {
-        if (err) { return (err) }
-        res.send(data);
-    })
+    TimeReportModel.find({ "project": { $ne: null } })
+        .sort('-project')
+        .exec((err, data) => {
+            if (err) { return (err) }
+            res.send(data);
+        })
 }
+
