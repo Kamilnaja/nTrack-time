@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import DataList from './dataList';
-import ProjectList from './projectList';
 import '../App';
+import axios from 'axios';
 
 class Buttons extends Component {
     constructor(props) {
@@ -12,7 +10,9 @@ class Buttons extends Component {
         this.saveData = this.saveData.bind(this);
         this.state = { 
             isRunning: false,
-            workTime: 0 
+            workTime: 0,
+            project: 'praca',
+            user: 'Kamil'
         }
     }
 
@@ -47,6 +47,18 @@ class Buttons extends Component {
 
     saveData() {
         console.log('saving');
+        axios.post('http://localhost:8080/api/reports', {
+            time: this.state.workTime,
+            user: this.state.user,
+            project: this.state.project
+        })
+        .then((res) => {
+            console.log(res);
+        })
+        this.setState({
+            info: 'zapisano'
+        });
+        this.stopCounter();
     }
     render() {
         return (
@@ -58,8 +70,6 @@ class Buttons extends Component {
                     ? <button className="button" onClick={this.startCounter}>Start</button> 
                     : <button className="button" onClick={this.stopCounter}>Stop</button>
                 }
-                    
-                   
                     <button 
                         className="button"
                         onClick={this.saveData}>Save data</button>

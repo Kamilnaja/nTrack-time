@@ -12,7 +12,9 @@ exports.time_reports_list = (req, res) => {
 
 exports.time_reports_save = (req, res) => {
     var recordInstance = new TimeReportModel({
-        user: req.body.user
+        user: req.body.user,
+        time: req.body.time,
+        project: req.body.project
     })
     recordInstance.save((err) => {
         if (err) { return (err) }

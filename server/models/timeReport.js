@@ -5,6 +5,9 @@ var mySchema = mongoose.Schema({
     },
     project: {
         type: String
+    },
+    time: {
+        type: Number
     }
 })
 
