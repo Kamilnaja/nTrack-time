@@ -3,20 +3,7 @@ import '../App';
 import axios from 'axios';
 
 class Buttons extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.startCounter = this.startCounter.bind(this);
-    //     this.stopCounter = this.stopCounter.bind(this);
-    //     this.saveData = this.saveData.bind(this);
-    //     this.state = { 
-    //         isRunning: false,
-    //         workTime: 0,
-    //         project: 'praca',
-    //         user: 'Kamil'
-    //     }
-    // }
-
-    time = 0; 
+    time = 0;
     startCounter() {
         if (this.state.isRunning === true) {
             return;
@@ -30,7 +17,7 @@ class Buttons extends Component {
                 })
             }, 1000);
         }
-        
+
     }
 
     stopCounter() {
@@ -40,10 +27,7 @@ class Buttons extends Component {
         })
         clearInterval(this.time);
     }
-    
-    resetCounter() {
-        this.time = 0;
-    }
+
 
     saveData() {
         console.log('saving');
@@ -52,42 +36,45 @@ class Buttons extends Component {
             user: this.state.user,
             project: this.state.project
         })
-        .then((res) => {
-            console.log(res);
-        })
+            .then((res) => {
+                console.log(res);
+            })
         this.setState({
             info: 'zapisano'
         });
         this.stopCounter();
     }
+
     render() {
         return (
             <div className="Buttons">
-                <h3 className="actual-time">{this.state.workTime}</h3>
+                <h3 className="actual-time">{this.props.workTime}</h3>
                 <div className="btn-wrapper">
-                {
-                    !this.props.isRunning 
-                    ? <button className="button" onClick={this.startCounter}>Start</button> 
-                    : <button className="button" onClick={this.stopCounter}>Stop</button>
-                }
-                    <button 
+             {   console.log(this.props) }
+                    {
+                        !this.props.isRunning
+                            ? <button
+                                className="button"
+                                onClick={() => this.props.startIsRunning(true)}>Start</button>
+                            : <button
+                                className="button"
+                                onClick={() => this.props.stopIsRunning(false)}>Stop</button>
+                    }
+                    <button
                         className="button"
-                        onClick={this.saveData}>Save data</button>
+                        onClick={this.saveData}>
+                        Save data
+                    </button>
+                    <button
+                        className="button"
+                        onClick={() => this.props.resetTime()}
+                    >
+                        Reset
+                    </button>
                 </div>
                 <p>Is running: {this.props.isRunning}</p>
-                <p>User name: {this.props.username}</p>
-                <button
-                    onClick={() => this.props.changeIsRunning("true")}
-                >
-                Start Counter
-                </button>
-                <button
-                    onClick={() => this.props.changeIsRunning("false")}
-                >
-                </button>
-                <button
-                    onClick={() => this.props.changeUserName('Anna')}
-                >Change username</button>
+                <p>Name: {this.props.userName}</p>
+                <p>Work time: {this.props.workTime}</p>
             </div>
         );
     }

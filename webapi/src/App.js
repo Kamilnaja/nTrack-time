@@ -5,17 +5,17 @@ import AddProject from './partials/AddProject';
 import './App.css';
 import { connect } from 'react-redux';
 
-
 class App extends Component {
-    render () {
-        return(
+    render() {
+        return (
             <div>
-                <Buttons 
-                    changeUserName={() => this.props.setName("anna")} 
-                    username={this.props.user.name}
-                    changeIsRunning={() => this.props.changeIsRunning("true")}
+                <Buttons
+                    stopIsRunning={() => this.props.changeIsRunning(false)}
+                    startIsRunning={() => this.props.changeIsRunning(true)}
                     isRunning={this.props.user.isRunning}
-                    > </Buttons>
+                    workTime={this.props.user.workTime}
+                    resetTime={() => this.props.resetTime()}
+                > </Buttons>
                 <AddProject></AddProject>
                 <ProjectList></ProjectList>
             </div>
@@ -25,7 +25,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user
+        user: state.user,
     }
 }
 
@@ -40,7 +40,13 @@ const mapDispatchToProps = (dispatch) => {
         changeIsRunning: (value) => {
             dispatch({
                 type: "SET_IS_RUNNING",
-                payload: value
+                payload: value,
+                timePayload: 'workTime'
+            })
+        },
+        resetTime: () => {
+            dispatch({
+                type: "RESET_TIME"
             })
         }
     }
