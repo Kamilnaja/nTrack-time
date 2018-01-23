@@ -3,18 +3,18 @@ import '../App';
 import axios from 'axios';
 
 class Buttons extends Component {
-    constructor(props) {
-        super(props);
-        this.startCounter = this.startCounter.bind(this);
-        this.stopCounter = this.stopCounter.bind(this);
-        this.saveData = this.saveData.bind(this);
-        this.state = { 
-            isRunning: false,
-            workTime: 0,
-            project: 'praca',
-            user: 'Kamil'
-        }
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.startCounter = this.startCounter.bind(this);
+    //     this.stopCounter = this.stopCounter.bind(this);
+    //     this.saveData = this.saveData.bind(this);
+    //     this.state = { 
+    //         isRunning: false,
+    //         workTime: 0,
+    //         project: 'praca',
+    //         user: 'Kamil'
+    //     }
+    // }
 
     time = 0; 
     startCounter() {
@@ -66,7 +66,7 @@ class Buttons extends Component {
                 <h3 className="actual-time">{this.state.workTime}</h3>
                 <div className="btn-wrapper">
                 {
-                    !this.state.isRunning 
+                    !this.props.isRunning 
                     ? <button className="button" onClick={this.startCounter}>Start</button> 
                     : <button className="button" onClick={this.stopCounter}>Stop</button>
                 }
@@ -74,6 +74,20 @@ class Buttons extends Component {
                         className="button"
                         onClick={this.saveData}>Save data</button>
                 </div>
+                <p>Is running: {this.props.isRunning}</p>
+                <p>User name: {this.props.username}</p>
+                <button
+                    onClick={() => this.props.changeIsRunning("true")}
+                >
+                Start Counter
+                </button>
+                <button
+                    onClick={() => this.props.changeIsRunning("false")}
+                >
+                </button>
+                <button
+                    onClick={() => this.props.changeUserName('Anna')}
+                >Change username</button>
             </div>
         );
     }
