@@ -38,13 +38,18 @@ const mapDispatchToProps = (dispatch) => {
             })
         },
         changeIsRunning: (value) => {
+            // if () {
+
+            // }
+            dispatch({
+                type: "SET_IS_RUNNING",
+                payload: value,
+            })
             console.log(this.state);
             let timeVal = 0;
             var time = setInterval(() => {
-                // timeVal++;
                 dispatch({
-                    type: "SET_IS_RUNNING",
-                    payload: value,
+                    type: "SET_TIMER_TIME",
                     timePayload: timeVal++
                 })
             }, 500)

@@ -8,16 +8,23 @@ export const userReducer = (state = {
             state = {
                 ...state,
                 isRunning: action.payload,
-                workTime: action.timePayload
                 // workTime: timeValue
             };
             break;
-        case "RESET_TIME":
+            
+            case "RESET_TIME":
             state = {
                 ...state,
                 workTime: 0
             }
             break;
+
+            case "SET_TIMER_TIME":
+            state = {
+                ...state,
+                workTime: action.timePayload
+
+            }
         
     }
     return state;
