@@ -17,6 +17,8 @@ export const userReducer = (state = {
                 ...state,
                 workTime: 0
             }
+            break;
+        
     }
     return state;
 };

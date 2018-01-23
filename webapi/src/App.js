@@ -38,11 +38,16 @@ const mapDispatchToProps = (dispatch) => {
             })
         },
         changeIsRunning: (value) => {
-            dispatch({
-                type: "SET_IS_RUNNING",
-                payload: value,
-                timePayload: 'workTime'
-            })
+            console.log(this.state);
+            let timeVal = 0;
+            var time = setInterval(() => {
+                // timeVal++;
+                dispatch({
+                    type: "SET_IS_RUNNING",
+                    payload: value,
+                    timePayload: timeVal++
+                })
+            }, 500)
         },
         resetTime: () => {
             dispatch({
