@@ -56,6 +56,7 @@ const mapDispatchToProps = (dispatch) => {
         resetTime: () => {
             const instance = this;
             clearInterval(instance.time);
+            timeVal = 0;
             dispatch({
                 type: "RESET_TIME",
                 timePayload: 0
