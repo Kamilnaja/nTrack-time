@@ -29,32 +29,36 @@ const mapStateToProps = (state) => {
     }
 }
 
+var timeVal = 0;
 const mapDispatchToProps = (dispatch) => {
     return {
-        time: '',
         startCounter: () => {
             dispatch({
                 type: 'START_COUNTER'
             })
-            let timeVal = 0;
-            this.time = setInterval(() => {
+            const instance = this;
+            instance.time = setInterval(() => {
                 dispatch({
                     type: "SET_TIMER_TIME",
                     timePayload: timeVal++
                 })
-            }, 500)
+            }, 1000)
         },
 
         stopCounter: () => {
-            clearInterval(this.time);
+            const instance = this;
+            clearInterval(instance.time);
             dispatch({
                 type: "STOP_COUNTER",
             })
         },
 
         resetTime: () => {
+            const instance = this;
+            clearInterval(instance.time);
             dispatch({
-                type: "RESET_TIME"
+                type: "RESET_TIME",
+                timePayload: 0
             })
         }
     }

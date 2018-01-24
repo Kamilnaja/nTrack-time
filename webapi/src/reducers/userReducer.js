@@ -20,7 +20,7 @@ export const userReducer = (state = {
         case "RESET_TIME":
             state = {
                 ...state,
-                workTime: 0
+                workTime: action.timePayload
             }
             break;
 
@@ -28,8 +28,8 @@ export const userReducer = (state = {
             state = {
                 ...state,
                 workTime: action.timePayload
-
             }
+            break;
     }
     return state;
 };

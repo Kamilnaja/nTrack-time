@@ -15,30 +15,19 @@
   display: inline;
 }
 
-.btn-wrapper {
+.btn-wrapper section {
+  margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin: 5px auto;
-  max-width: 75%;
-}
-
-@media(max-width: 772px) {
-  .btn-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 20px;
-    max-width: 100%;
-  } 
 }
 
 .button {
-  width: 80%;
   margin: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 35%;
   font-size: 30px;
   border: 2px solid white;
   color: rgba(0, 0, 0, 0.6);

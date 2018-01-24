@@ -52,24 +52,32 @@ class Buttons extends Component {
                 <div className="btn-wrapper">
                     {
                         !this.props.isRunning
-                            ? <button
-                                className="button"
-                                onClick={() => this.props.startCounter()}>Start</button>
-                            : <button
-                                className="button"
-                                onClick={() => this.props.stopCounter()}>Stop</button>
+                            ?
+                            <section>
+                                <button
+                                    className="button"
+                                    onClick={() => this.props.startCounter()}>Start</button>
+                                <button
+                                    className="button"
+                                    onClick={() => this.props.resetTime()}
+                                >Reset
+                            </button>
+                            </section>
+                            :
+                            <section>
+                                <button
+                                    className="button"
+                                    onClick={() => this.props.stopCounter()}>Stop</button>
+                                <button
+                                    className="button"
+                                    onClick={this.saveData}>
+                                    Save data
+                                </button>
+                            </section>
                     }
-                    <button
-                        className="button"
-                        onClick={this.saveData}>
-                        Save data
-                    </button>
-                    <button
-                        className="button"
-                        onClick={() => this.props.resetTime()}
-                    >
-                        Reset
-                    </button>
+
+
+
                 </div>
             </div>
         );
