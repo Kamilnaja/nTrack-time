@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Buttons from './partials/Buttons';
-import ProjectList from './partials/projectList';
-import AddProject from './partials/AddProject';
 import './App.css';
 import { connect } from 'react-redux';
 
@@ -16,8 +14,6 @@ class App extends Component {
                     workTime={this.props.user.workTime}
                     resetTime={() => this.props.resetTime()}
                 > </Buttons>
-                <AddProject></AddProject>
-                <ProjectList></ProjectList>
             </div>
         )
     }
