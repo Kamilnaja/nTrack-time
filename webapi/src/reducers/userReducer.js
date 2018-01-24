@@ -3,29 +3,33 @@ export const userReducer = (state = {
     workTime: 0
 }, action) => {
     switch (action.type) {
-        case "SET_IS_RUNNING":
-            let timeValue;
+        case "START_COUNTER":
             state = {
                 ...state,
-                isRunning: action.payload,
-                // workTime: timeValue
+                isRunning: true,
             };
             break;
-            
-            case "RESET_TIME":
+
+        case "STOP_COUNTER":
+            state = {
+                ...state,
+                isRunning: false,
+            };
+            break;
+
+        case "RESET_TIME":
             state = {
                 ...state,
                 workTime: 0
             }
             break;
 
-            case "SET_TIMER_TIME":
+        case "SET_TIMER_TIME":
             state = {
                 ...state,
                 workTime: action.timePayload
 
             }
-        
     }
     return state;
 };

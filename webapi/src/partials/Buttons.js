@@ -50,15 +50,14 @@ class Buttons extends Component {
             <div className="Buttons">
                 <h3 className="actual-time">{this.props.workTime}</h3>
                 <div className="btn-wrapper">
-             {   console.log(this.props) }
                     {
                         !this.props.isRunning
                             ? <button
                                 className="button"
-                                onClick={() => this.props.startIsRunning(true)}>Start</button>
+                                onClick={() => this.props.startCounter()}>Start</button>
                             : <button
                                 className="button"
-                                onClick={() => this.props.stopIsRunning(false)}>Stop</button>
+                                onClick={() => this.props.stopCounter()}>Stop</button>
                     }
                     <button
                         className="button"
@@ -72,9 +71,6 @@ class Buttons extends Component {
                         Reset
                     </button>
                 </div>
-                <p>Is running: {this.props.isRunning}</p>
-                <p>Name: {this.props.userName}</p>
-                <p>Work time: {this.props.workTime}</p>
             </div>
         );
     }

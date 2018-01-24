@@ -10,8 +10,8 @@ class App extends Component {
         return (
             <div>
                 <Buttons
-                    stopIsRunning={() => this.props.changeIsRunning(false)}
-                    startIsRunning={() => this.props.changeIsRunning(true)}
+                    stopCounter={() => this.props.stopCounter()}
+                    startCounter={() => this.props.startCounter()}
                     isRunning={this.props.user.isRunning}
                     workTime={this.props.user.workTime}
                     resetTime={() => this.props.resetTime()}
@@ -31,29 +31,27 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setName: (name) => {
+        time: '',
+        startCounter: () => {
             dispatch({
-                type: "SET_NAME",
-                payload: name
+                type: 'START_COUNTER'
             })
-        },
-        changeIsRunning: (value) => {
-            // if () {
-
-            // }
-            dispatch({
-                type: "SET_IS_RUNNING",
-                payload: value,
-            })
-            console.log(this.state);
             let timeVal = 0;
-            var time = setInterval(() => {
+            this.time = setInterval(() => {
                 dispatch({
                     type: "SET_TIMER_TIME",
                     timePayload: timeVal++
                 })
             }, 500)
         },
+
+        stopCounter: () => {
+            clearInterval(this.time);
+            dispatch({
+                type: "STOP_COUNTER",
+            })
+        },
+
         resetTime: () => {
             dispatch({
                 type: "RESET_TIME"
