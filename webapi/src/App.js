@@ -13,6 +13,7 @@ class App extends Component {
                     isRunning={this.props.user.isRunning}
                     workTime={this.props.user.workTime}
                     resetTime={() => this.props.resetTime()}
+                    saveTime={() => this.props.saveTime()}
                 > </Buttons>
             </div>
         )
@@ -28,6 +29,14 @@ const mapStateToProps = (state) => {
 var timeVal = 0;
 const mapDispatchToProps = (dispatch) => {
     return {
+        saveTime: () => {
+            dispatch({
+                type: "SAVE_TIME",
+                timePayload: timeVal
+            })
+            localStorage.setItem("savedTime", timeVal);
+        },
+
         startCounter: () => {
             dispatch({
                 type: 'START_COUNTER'

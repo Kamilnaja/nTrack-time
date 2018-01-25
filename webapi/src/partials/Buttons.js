@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../App';
+import axios from 'axios';
+
 class Buttons extends Component {
     render() {
         return (
@@ -13,23 +15,33 @@ class Buttons extends Component {
                                 <button
                                     className="button"
                                     onClick={() => this.props.startCounter()}>Start</button>
-                                <button
-                                    className="button"
-                                    onClick={() => this.props.resetTime()}
-                                >Reset
-                            </button>
+
                             </section>
                             :
                             <section>
                                 <button
                                     className="button"
                                     onClick={() => this.props.stopCounter()}>Stop</button>
+
+                            </section>
+                    }
+                    {
+                        <div className="action-wrapper">
+                            <button
+                                className="button"
+                                onClick={() => this.props.resetTime()}>
+                                Reset
+                        </button>
+                            {
+                                !this.props.isRunning &&
                                 <button
                                     className="button"
-                                    onClick={this.saveData}>
-                                    Save data
+                                    onClick={() => this.props.saveTime()}>
+                                    Save time
                                 </button>
-                            </section>
+                            }
+
+                        </div>
                     }
                 </div>
             </div>

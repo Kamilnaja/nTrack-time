@@ -3,6 +3,14 @@ export const userReducer = (state = {
     workTime: 0
 }, action) => {
     switch (action.type) {
+
+        case "SAVE_TIME":
+            state = {
+                ...state,
+                timeToSave: 10
+            };
+            break;
+
         case "START_COUNTER":
             state = {
                 ...state,
