@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../App';
-import axios from 'axios';
 
 class Buttons extends Component {
     render() {
@@ -15,7 +14,6 @@ class Buttons extends Component {
                                 <button
                                     className="button"
                                     onClick={() => this.props.startCounter()}>Start</button>
-
                             </section>
                             :
                             <section>
